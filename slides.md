@@ -231,4 +231,4 @@ $$
 1.3863x_1+1.3863x_2+1.3863x_3-2.75=0
 $$
 
-[^1]: Visualized decision surface for example 3 on [GitHub](https://ytakzk.github.io/Bayes-Decision-Theory-Discrete-Features).
+[^1]: Visualized decision surface for example 3 on [GitHub](https://ytakzk.github.io/Bayes-Decision-Theory-Discrete-Features/).
