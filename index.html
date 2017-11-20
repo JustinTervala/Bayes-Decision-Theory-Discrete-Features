@@ -116,8 +116,9 @@ const w0Val     = document.getElementById('w0')
 const options = {
   width:  '600px',
   height: '500px',
-  style: 'surface',
-  showPerspective: true,
+  style: 'dot',
+  dotSizeRatio: 0.0005,
+  showPerspective: false,
   showGrid: true,
   showShadow: false,
   keepAspectRatio: true,
@@ -175,7 +176,7 @@ function draw(p, p1, q1, p2, q2, p3, q3) {
     x_list.forEach(function(x) {
       var z = (-w_2 * y - w_1 * x - w_0)/ w_3
 
-      if (isFinite(z)) {
+      if (z >= 0 && z <= 1) {
         data.add({id: counter++, x: x, y: y, z: z})
       }
     })
@@ -183,14 +184,14 @@ function draw(p, p1, q1, p2, q2, p3, q3) {
 
   if (w_3 == 0) {
 
-    counter = 0
-    y_list.forEach(function(y) {
-      var x = (-w_2 * y - w_0)/ w_1
-      var z = counter / (y_list.length * x_list.length)
-      if (isFinite(x)) {
-        data.add({id: counter++, x: x, y: y, z: z})
-        console.log(x, y, z)
-      }
+    x_list.forEach(function(x) {
+      var y = (-w_1 * x - w_0)/ w_2
+      var z_list = x_list
+      z_list.forEach(function(z) {
+        if (isFinite(x)) {
+          data.add({id: counter++, x: x, y: y, z: z})
+        }
+      })
     })
   }
 
